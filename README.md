@@ -1,10 +1,11 @@
 # Project Name
 > Short blurb about what your project does.
 
+<img src="assets/logo.png" />
+
 [![Build Status][ci-image]][ci-url]
 [![License][license-image]][license-url]
 [![Developed at Klarna][klarna-image]][klarna-url]
-
 
 One to two paragraph statement about your project and what it does.
 
