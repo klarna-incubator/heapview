@@ -15,7 +15,11 @@ pub struct Stats {
 }
 
 pub fn get_statistics() -> Stats {
-    let vec: Vec<(String, usize)> = Vec::new();
+    let vec: Vec<(String, usize)> =
+        vec![(String::from("code"), 123), (String::from("strings"), 456)];
+
+    // vec.push();
+    // vec.push();
 
     let stats = Stats {
         total: 123,
