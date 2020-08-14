@@ -23,7 +23,8 @@ pub struct Stats {
     pub categories: Vec<(String, usize)>,
 }
 
-pub fn get_statistics() -> Stats {
+pub fn get_statistics(heapdump: HeapDump) -> Stats {
+    print!("{:?}", heapdump.strings.len());
     let vec: Vec<(String, usize)> =
         vec![(String::from("code"), 123), (String::from("strings"), 456)];
 
