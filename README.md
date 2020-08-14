@@ -6,13 +6,9 @@
 [![License][license-image]][license-url]
 [![Developed at Klarna][klarna-image]][klarna-url]
 
-Heapview is a tool to help you out in [post mortem debugging scenarios].
+Heapview is a tool to help you out in [post mortem debugging scenarios](#post-mortems).
 
-## Post mortems
-
-Post mortem debugging usually happens when you can't inspect your processes directly, for instance, when when you're running microservices.
-
-In these cases you will have to first produce some heap dumps. One good lib to do so is [heapdump](https://www.npmjs.com/package/heapdump). It uses v8 cpp bindings to do so in older versions of node. Since [11.13](https://nodejs.org/api/v8.html#v8_v8_getheapsnapshot), you can do it in JS by running `v8.getHeapSnapshot()`.
+It's currently under development.
 
 ## Developing
 
@@ -21,6 +17,26 @@ You'll need [Rust](https://www.rust-lang.org/tools/install) to build the parser 
 ```sh
 cargo run <PATH_TO_FILE>
 ```
+
+## Roadmap
+
+#### Realistic
+
+- Display all nodes and allow search by type, content, etc;
+- Automatically group objects based on similarity;
+- Display a proper TreeMap of everything;
+
+#### Sci-fi
+
+- If given a package.json, try and figure which objects come from which deps and general dep weight.
+- TBD
+
+## Post mortems
+
+Post mortem debugging usually happens when you can't inspect your processes directly, for instance, when when you're running microservices.
+
+In these cases you will have to first produce some heap dumps. One good lib to do so is [heapdump](https://www.npmjs.com/package/heapdump). It uses v8 cpp bindings to do so in older versions of node. Since [11.13](https://nodejs.org/api/v8.html#v8_v8_getheapsnapshot), you can do it in JS by running `v8.getHeapSnapshot()`.
+
 
 ## How to contribute
 
