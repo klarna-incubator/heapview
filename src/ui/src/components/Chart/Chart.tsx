@@ -1,22 +1,14 @@
 import React, { useEffect, createRef } from 'react';
 import Slice from './Slice';
 import * as d3 from 'd3'; // @to-do should change the package to just d3 modules we are actually using
-import { map, applySpec, head, last } from 'ramda';
 
 interface Data {
   categories: Array<any>;
-  totalBytes: number;
+  total: number;
 }
 interface ChartProps {
   data: Data;
 }
-
-const applyKeyValue = applySpec({
-  key: head,
-  value: last,
-});
-
-const transformEntries = map(applyKeyValue);
 
 const Chart = ({ data }: ChartProps) => {
   const { categories } = data;
@@ -33,7 +25,7 @@ const Chart = ({ data }: ChartProps) => {
   const width = 500;
   const height = 500;
 
-  const entries = transformEntries(categories);
+  const entries = d3.entries(categories);
 
   /** @to-do switch to exampleContract and add labels */
   let pie = d3
