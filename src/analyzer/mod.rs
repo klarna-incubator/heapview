@@ -1,9 +1,18 @@
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
-#[derive(Serialize, Deserialize)]
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Snapshot {
+    meta: Value,
+    node_count: usize,
+    edge_count: usize,
+    trace_function_count: usize,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
 pub struct HeapDump {
-    snapshot: Value,
+    pub snapshot: Snapshot,
     pub nodes: Vec<u32>,
     pub strings: Vec<String>,
 }
