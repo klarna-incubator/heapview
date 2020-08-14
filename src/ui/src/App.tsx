@@ -29,9 +29,15 @@ const App = ({}: AppProps) => {
 
   return (
     <div className="App">
-      <div className="App-container">
-        <Chart data={exampleContract} />
-      </div>
+      <h1>
+        <a
+          href={'https://github.com/klarna-incubator/heapview'}
+          target={'_blank'}
+        >
+          heapview
+        </a>
+      </h1>
+      <Chart data={exampleContract} />
     </div>
   );
 };

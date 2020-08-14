@@ -1787,6 +1787,13 @@
   resolved "https://artifactory.klarna.net/artifactory/api/npm/v-npm-production/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha1-KrDV2i5YFflLC51LldHl8kOrLKc=
 
+"@types/ramda@^0.27.14":
+  version "0.27.14"
+  resolved "https://artifactory.klarna.net/artifactory/api/npm/v-npm-production/@types/ramda/-/ramda-0.27.14.tgz#95f5f676ebdff89cbc7ded8cd011911fa6854daf"
+  integrity sha1-lfX2duvf+Jy8fe2M0BGRH6aFTa8=
+  dependencies:
+    ts-toolbelt "^6.3.3"
+
 "@types/react-dom@^16.9.8":
   version "16.9.8"
   resolved "https://artifactory.klarna.net/artifactory/api/npm/v-npm-production/@types/react-dom/-/react-dom-16.9.8.tgz#fe4c1e11dfc67155733dfa6aa65108b4971cb423"
@@ -5986,6 +5993,11 @@ tr46@^2.0.2:
   integrity sha1-Ayc1ht7xWVrgj+2zjXczzukdJHk=
   dependencies:
     punycode "^2.1.1"
+
+ts-toolbelt@^6.3.3:
+  version "6.15.5"
+  resolved "https://artifactory.klarna.net/artifactory/api/npm/v-npm-production/ts-toolbelt/-/ts-toolbelt-6.15.5.tgz#cb3b43ed725cb63644782c64fbcad7d8f28c0a83"
+  integrity sha1-yztD7XJctjZEeCxk+8rX2PKMCoM=
 
 tunnel-agent@^0.6.0:
   version "0.6.0"
