@@ -123,7 +123,7 @@ dependencies = [
 [[package]]
 name = "borrow-bag"
 version = "1.0.0"
-source = "git+https://github.com/gotham-rs/gotham.git?branch=master#77c563c1d856627a3196c6296fbdcd4d239db1c3"
+source = "git+https://github.com/gotham-rs/gotham.git#77c563c1d856627a3196c6296fbdcd4d239db1c3"
 
 [[package]]
 name = "buf_redux"
@@ -408,7 +408,7 @@ checksum = "aaf91faf136cb47367fa430cd46e37a788775e7fa104f8b4bcb3861dc389b724"
 [[package]]
 name = "gotham"
 version = "0.5.0-rc.1"
-source = "git+https://github.com/gotham-rs/gotham.git?branch=master#77c563c1d856627a3196c6296fbdcd4d239db1c3"
+source = "git+https://github.com/gotham-rs/gotham.git#77c563c1d856627a3196c6296fbdcd4d239db1c3"
 dependencies = [
  "base64 0.12.3",
  "bincode",
@@ -443,7 +443,7 @@ dependencies = [
 [[package]]
 name = "gotham_derive"
 version = "0.5.0-rc.1"
-source = "git+https://github.com/gotham-rs/gotham.git?branch=master#77c563c1d856627a3196c6296fbdcd4d239db1c3"
+source = "git+https://github.com/gotham-rs/gotham.git#77c563c1d856627a3196c6296fbdcd4d239db1c3"
 dependencies = [
  "quote",
  "syn",

@@ -4,8 +4,6 @@ use serde_json::Result;
 use std::env;
 use std::fs;
 
-// use warp::Filter;
-
 fn run(file: &std::string::String) -> Result<HeapDump> {
     let data = fs::read_to_string(file).expect("NOPE");
 
@@ -20,7 +18,13 @@ fn main() {
     let file = &args[1];
     let heapdump = run(file).expect("?");
 
-    let _stats = get_statistics(heapdump);
+    let stats = get_statistics(heapdump);
+        fs::write(
+            "/tmp/stats.json",
+            serde_json::ser::to_string(&stats).expect("Failed to serialize the stats"),
+        )
+        .expect("Unable to write file");
+
 
     create_server("127.0.0.1:3000".to_string())
 }

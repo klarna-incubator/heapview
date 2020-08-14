@@ -1,13 +1,13 @@
-// extern crate serde_derive;
-use crate::analyzer::{get_statistics, HeapDump, Stats};
-use crate::backend::routes::RequestHeapdump;
+
+use crate::analyzer::Stats;
 use gotham::handler::IntoResponse;
 use gotham::helpers::http::response::create_response;
 use gotham::hyper::{Body, Response, StatusCode};
-use gotham::router::builder::*;
-use gotham::router::Router;
 use gotham::state::State;
-use serde::{Deserialize, Serialize};
+use serde::Serialize;
+
+
+
 /// An Analysis
 #[derive(Serialize)]
 pub struct Analysis {
@@ -25,12 +25,12 @@ impl IntoResponse for Analysis {
     }
 }
 
-pub fn index_handler(state: State) -> (State, Analysis) {
-    let heapdump = RequestHeapdump::borrow_from(&state);
+// pub fn index_handler(state: State) -> (State, Analysis) {
 
-    let analysis = Analysis {
-        stats: get_statistics(heapdump),
-    };
+//     // let analysis = read_analysis_from_file()
+//     // let req_heapdump = RequestHeapdump::borrow_from(&state);
 
-    (state, analysis)
-}
+//     // let heapdump = req_heapdump.inner.lock().unwrap();
+
+//     (state, analysis)
+// }

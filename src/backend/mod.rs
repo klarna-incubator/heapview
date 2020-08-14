@@ -1,9 +1,8 @@
-use crate::analyzer::HeapDump;
 mod routes;
 
-pub fn create_server(address: String, heapdump: HeapDump) {
+pub fn create_server(address: String) {
     println!("Listening for requests at http://{}", address);
-    gotham::start(address, routes::heapviewRouter(heapdump))
+    gotham::start(address, routes::heapview_router())
 }
 
 // #[cfg(test)]

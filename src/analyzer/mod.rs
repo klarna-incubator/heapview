@@ -1,4 +1,3 @@
-use gotham::state::StateData;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::collections::HashMap;
@@ -47,6 +46,7 @@ pub struct Node {
     trace_node_id: usize,
 }
 
+#[serde(rename_all = "camelCase")]
 #[derive(Debug, Serialize)]
 pub struct Stats {
     pub total: usize,
