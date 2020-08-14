@@ -6,9 +6,11 @@ import Chart from './components/Chart';
 const exampleContract = {
   totalBytes: 100,
   categories: [
-    ['a', 20],
-    ['b', 40],
-    ['c', 40],
+    ['Code', 200],
+    ['Strings', 200],
+    ['JS Arrays', 400],
+    ['Typed Arrays', 100],
+    ['System Objects', 600],
   ],
 };
 
