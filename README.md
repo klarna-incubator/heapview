@@ -32,7 +32,7 @@ cargo run <PATH_TO_FILE>
 
 ## Post mortems
 
-Post mortem debugging usually happens when you can't inspect your processes directly, for instance, when when you're running microservices.
+Post mortem debugging usually happens when you can't inspect your processes directly, for instance, when you're running microservices.
 
 In these cases you will have to first produce some heap dumps. One good lib to do so is [heapdump](https://www.npmjs.com/package/heapdump). It uses v8 cpp bindings to do so in older versions of node. Since [11.13](https://nodejs.org/api/v8.html#v8_v8_getheapsnapshot), you can do it in JS by running `v8.getHeapSnapshot()`.
 
