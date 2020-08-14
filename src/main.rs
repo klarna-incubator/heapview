@@ -18,14 +18,5 @@ async fn main() {
     let file = &args[1];
     let heapdump = run(file).expect("?");
 
-    // println!("Number of nodes {}", heapdump.nodes.len());
-    // println!("Number of strings {}", heapdump.strings.len());
-
-   // println!("stats {:?}", get_statistics(heapdump));
-
-    get_statistics(heapdump);
-
-
-    // let hello = warp::any().map(|| "Hello");
-    // warp::serve(hello).run(([127, 0, 0, 1], 3030)).await;
+    let _stats = get_statistics(heapdump);
 }
