@@ -21,7 +21,9 @@ async fn main() {
     // println!("Number of nodes {}", heapdump.nodes.len());
     // println!("Number of strings {}", heapdump.strings.len());
 
-    println!("stats {:?}", get_statistics(heapdump));
+   // println!("stats {:?}", get_statistics(heapdump));
+
+    get_statistics(heapdump);
 
 
     // let hello = warp::any().map(|| "Hello");

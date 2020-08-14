@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
 #[derive(Debug)]
-enum NodeType {
+pub enum NodeType {
     Hidden,
     Array,
     String,
@@ -48,8 +48,7 @@ pub struct Node {
 #[derive(Debug)]
 pub struct Stats {
     pub total: usize,
-    pub categories: Vec<(String, usize)>,
-    pub nodes: Vec<Node>,
+    pub categories: Vec<(NodeType, usize)>,
 }
 
 fn get_node_type(type_number: usize) -> NodeType {
@@ -78,6 +77,15 @@ pub fn get_statistics(heapdump: HeapDump) -> Stats {
         vec![(String::from("code"), 123), (String::from("strings"), 456)];
 
     let mut nodes: Vec<Node> = vec![];
+
+    let mut stats = Stats {
+        total: 0,
+        categories: vec![],
+    };
+
+    //let size = &nodes.into_iter().fold(0, |agg, n| agg + n.self_size );
+    //println!("size {:?}", size);
+
     for node_values in heapdump.nodes.chunks(6) {
         let node = Node {
             node_type: get_node_type(node_values[0]),
@@ -87,16 +95,14 @@ pub fn get_statistics(heapdump: HeapDump) -> Stats {
             edge_count: node_values[4],
             trace_node_id: node_values[5],
         };
+        //println!("type:{:?} name:{:?} id:{:?} self_size:{:?} edge_count:{:?} trace_node_id:{:?}", node.node_type, node.name, node.id, node.self_size, node.edge_count, node.trace_node_id);
+
+        stats.total += node.self_size;
+
         nodes.push(node)
     }
-    // vec.push();
-    // vec.push();
 
-    let stats = Stats {
-        total: 123,
-        categories: vec,
-        nodes: nodes,
-    };
+    println!("Stats {:?}", stats);
 
     stats
 }
