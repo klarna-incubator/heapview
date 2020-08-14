@@ -1,4 +1,6 @@
 // extern crate serde_derive;
+use crate::analyzer::{get_statistics, HeapDump, Stats};
+use crate::backend::routes::RequestHeapdump;
 use gotham::handler::IntoResponse;
 use gotham::helpers::http::response::create_response;
 use gotham::hyper::{Body, Response, StatusCode};
@@ -6,11 +8,10 @@ use gotham::router::builder::*;
 use gotham::router::Router;
 use gotham::state::State;
 use serde::{Deserialize, Serialize};
-
 /// An Analysis
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize)]
 pub struct Analysis {
-    name: String,
+    stats: Stats,
 }
 
 impl IntoResponse for Analysis {
@@ -25,8 +26,10 @@ impl IntoResponse for Analysis {
 }
 
 pub fn index_handler(state: State) -> (State, Analysis) {
+    let heapdump = RequestHeapdump::borrow_from(&state);
+
     let analysis = Analysis {
-        name: "analysis".to_string(),
+        stats: get_statistics(heapdump),
     };
 
     (state, analysis)

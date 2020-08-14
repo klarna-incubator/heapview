@@ -1,8 +1,9 @@
-use heapview::backend::create_server;
 use heapview::analyzer::{get_statistics, HeapDump};
+use heapview::backend::create_server;
 use serde_json::Result;
 use std::env;
 use std::fs;
+
 // use warp::Filter;
 
 fn run(file: &std::string::String) -> Result<HeapDump> {
@@ -21,5 +22,5 @@ fn main() {
 
     let _stats = get_statistics(heapdump);
 
-    create_server("127.0.0.1:3000".to_string()) 
+    create_server("127.0.0.1:3000".to_string())
 }

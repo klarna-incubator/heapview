@@ -1,8 +1,9 @@
+use gotham::state::StateData;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::collections::HashMap;
 
-#[derive(Clone, Debug, Hash, Eq, PartialEq)]
+#[derive(Clone, Debug, Hash, Eq, PartialEq, Serialize)]
 pub enum NodeType {
     Hidden,
     Array,
@@ -21,7 +22,7 @@ pub enum NodeType {
     Uknown,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Snapshot {
     meta: Value,
     node_count: usize,
@@ -29,7 +30,7 @@ pub struct Snapshot {
     trace_function_count: usize,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Clone, StateData, Debug, Serialize, Deserialize)]
 pub struct HeapDump {
     pub snapshot: Snapshot,
     pub nodes: Vec<usize>,
@@ -46,7 +47,7 @@ pub struct Node {
     trace_node_id: usize,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Serialize)]
 pub struct Stats {
     pub total: usize,
     pub categories: HashMap<NodeType, usize>,
