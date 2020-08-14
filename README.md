@@ -2,7 +2,6 @@
 
 > node heap dump visualizer
 
-[![Build Status][ci-image]][ci-url]
 [![License][license-image]][license-url]
 [![Developed at Klarna][klarna-image]][klarna-url]
 
