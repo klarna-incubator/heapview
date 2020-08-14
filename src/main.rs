@@ -1,15 +1,8 @@
-use serde::{Deserialize, Serialize};
-use serde_json::{Result, Value};
+use heapview::analyzer::{get_statistics, HeapDump};
+use serde_json::Result;
 use std::env;
 use std::fs;
-use warp::Filter;
-
-#[derive(Serialize, Deserialize)]
-struct HeapDump {
-    snapshot: Value,
-    nodes: Vec<u32>,
-    strings: Vec<String>,
-}
+// use warp::Filter;
 
 fn run(file: &std::string::String) -> Result<HeapDump> {
     let data = fs::read_to_string(file).expect("NOPE");
@@ -25,9 +18,11 @@ async fn main() {
     let file = &args[1];
     let heapdump = run(file).expect("?");
 
+    println!("stats {:?}", get_statistics());
+
     println!("Number of nodes {}", heapdump.nodes.len());
     println!("Number of strings {}", heapdump.strings.len());
 
-    let hello = warp::any().map(|| "Hello");
-    warp::serve(hello).run(([127, 0, 0, 1], 3030)).await;
+    // let hello = warp::any().map(|| "Hello");
+    // warp::serve(hello).run(([127, 0, 0, 1], 3030)).await;
 }
