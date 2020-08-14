@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use serde_json::Result;
 use serde_json::Value;
 use std::collections::HashMap;
 
@@ -103,4 +104,10 @@ pub fn get_statistics(heapdump: HeapDump) -> Stats {
     println!("Stats {:?}", stats);
 
     stats
+}
+
+pub fn parse_heapdump(data: String) -> Result<HeapDump> {
+    let heapdump: HeapDump = serde_json::from_str(&data)?;
+
+    Ok(heapdump)
 }
