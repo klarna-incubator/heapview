@@ -25,11 +25,12 @@ const App = ({}: AppProps) => {
     };
     requestFromServer();
   }, []);
+  console.log(data);
 
   return (
     <div className="App">
       <div className="App-container">
-        <Chart data={d3exampleData} />
+        <Chart data={exampleContract} />
       </div>
     </div>
   );
