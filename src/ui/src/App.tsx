@@ -3,31 +3,19 @@ import './App.css';
 import axios from 'axios';
 import Chart from './components/Chart';
 
-const exampleContract = {
-  totalBytes: 100,
-  categories: [
-    ['Code', 200],
-    ['Strings', 200],
-    ['JS Arrays', 400],
-    ['Typed Arrays', 100],
-    ['System Objects', 600],
-  ],
-};
-
 interface AppProps {}
 
 const App = ({}: AppProps) => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState(false);
   useEffect(() => {
     const requestFromServer = async () => {
       const res = await axios.request({
-        url: 'https://reqres.in/api/unknown',
+        url: 'http://localhost:3000/analysis',
       });
       setData(res.data);
     };
     requestFromServer();
   }, []);
-  console.log(data);
 
   return (
     <div className="App">
@@ -39,7 +27,7 @@ const App = ({}: AppProps) => {
           heapview
         </a>
       </h1>
-      <Chart data={exampleContract} />
+      {data && <Chart data={data} />}
     </div>
   );
 };
