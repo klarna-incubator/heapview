@@ -1,47 +1,25 @@
-# Project Name
-> Short blurb about what your project does.
+<img src="assets/logo.png" width="200" />
 
-<img src="assets/logo.png" />
+> node heap dump visualizaer
 
 [![Build Status][ci-image]][ci-url]
 [![License][license-image]][license-url]
 [![Developed at Klarna][klarna-image]][klarna-url]
 
-One to two paragraph statement about your project and what it does.
+Heapview is a tool to help you out in [post mortem debugging scenarios].
 
-## First steps
+## Post mortems
 
-<details>
- <summary>Installation (for Admins)</summary>
-  
-  Currently, new repositories can be created only by a Klarna Open Source community lead. Please reach out to us if you need assistance.
-  
-  1. Create a new repository by clicking ‘Use this template’ button.
-  
-  2. Make sure your newly created repository is private.
-  
-  3. Enable Dependabot alerts in your candidate repo settings under Security & analysis. You need to enable ‘Allow GitHub to perform read-only analysis of this repository’ first.
-</details>
+Post mortem debugging usually happens when you can't inspect your processes directly, for instance, when when you're running microservices.
 
-1. Update `README.md` and `CHANGELOG.md`.
+In these cases you will have to first produce some heap dumps. One good lib to do so is [heapdump](https://www.npmjs.com/package/heapdump). It uses v8 cpp bindings to do so in older versions of node. Since [11.13](https://nodejs.org/api/v8.html#v8_v8_getheapsnapshot), you can do it in JS by running `v8.getHeapSnapshot()`.
 
-2. Optionally, change `.github/CONTRIBUTING.md`.
+## Developing
 
-3. Do *not* edit `LICENSE`, `.github/CODE_OF_CONDUCT.md`, and `.github/SECURITY.md`.
-
-## Usage example
-
-A few motivating and useful examples of how your project can be used. Spice this up with code blocks and potentially more screenshots.
-
-_For more examples and usage, please refer to the [Docs](TODO)._
-
-## Development setup
-
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+You'll need [Rust](https://www.rust-lang.org/tools/install) to build the parser and server and [Node](https://github.com/nvm-sh/nvm) if you wanna work on the UI.
 
 ```sh
-make install
-npm test
+cargo run <PATH_TO_FILE>
 ```
 
 ## How to contribute
