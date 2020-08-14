@@ -1,6 +1,6 @@
 <img src="assets/logo.png" width="200" />
 
-> node heap dump visualizaer
+> node heap dump visualizer
 
 [![Build Status][ci-image]][ci-url]
 [![License][license-image]][license-url]
