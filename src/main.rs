@@ -1,4 +1,5 @@
 use heapview::analyzer::{get_statistics, HeapDump};
+use heapview::backend::{create_server};
 use serde_json::Result;
 use std::env;
 use std::fs;
@@ -23,6 +24,7 @@ async fn main() {
     println!("Number of nodes {}", heapdump.nodes.len());
     println!("Number of strings {}", heapdump.strings.len());
 
+    create_server()
     // let hello = warp::any().map(|| "Hello");
     // warp::serve(hello).run(([127, 0, 0, 1], 3030)).await;
 }
