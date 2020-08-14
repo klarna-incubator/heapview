@@ -20,8 +20,14 @@ const transformEntries = map(applyKeyValue);
 
 const Chart = ({ data }: ChartProps) => {
   const { categories } = data;
-
   const sunburstChartRef = createRef();
+
+  useEffect(() => {
+    /** @to-do use d3 append / selectors */
+    if (categories && sunburstChartRef.current) {
+      const svg = d3.select(sunburstChartRef.current);
+    }
+  });
 
   /** @to-do Should this be configurable by user? */
   const width = 500;
@@ -38,7 +44,7 @@ const Chart = ({ data }: ChartProps) => {
   return (
     <svg height={height} width={width} ref={sunburstChartRef}>
       <g transform={`translate(${width / 2},${height / 2})`}>
-        <Slice pie={pie} />
+        <Slice pie={pie} size={[width, height]} />
       </g>
     </svg>
   );
