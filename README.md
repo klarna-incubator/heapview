@@ -17,6 +17,15 @@ You'll need [Rust](https://www.rust-lang.org/tools/install) to build the parser 
 cargo run <PATH_TO_FILE>
 ```
 
+## Running the UI
+To show the chart in the browser, you can start development server:
+```
+cd heapview/ui/
+npm install
+npm start
+```
+You can read more in the [UI README](./ui/README.md).
+
 ## Roadmap
 
 #### Realistic
