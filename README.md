@@ -20,10 +20,14 @@ You'll need [Rust](https://www.rust-lang.org/tools/install) to build the parser 
 cargo run <PATH_TO_FILE>
 ```
 
-```sh
-# For frontend
-( cd src/ui ; yarn start )
+## Running the UI
+To show the chart in the browser, you can start development server:
 ```
+cd heapview/src/ui/
+npm install
+npm start
+```
+You can read more in the [UI README](./src/ui/README.md).
 
 ## Roadmap
 

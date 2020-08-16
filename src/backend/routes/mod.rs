@@ -56,3 +56,49 @@ pub fn heapview_router(stats: Stats) -> Router {
         route.scope("/analysis", |route| route.get("/").to(handler))
     })
 }
+
+#[cfg(test)]
+mod test {
+    use super::*;
+    use std::collections::HashMap;
+
+    use serde_json::{from_str, Value};
+
+    use crate::analyzer::{NodeType, Stats};
+    use gotham::hyper::StatusCode;
+    use gotham::test::TestServer;
+
+    #[test]
+    fn test_analysis() {
+        let mut categories = HashMap::new();
+        categories.insert(NodeType::Array, 111);
+        categories.insert(NodeType::Number, 222);
+        categories.insert(NodeType::String, 333);
+
+        let stats = Stats {
+            total: 666,
+            categories,
+        };
+        let test_server = TestServer::new(heapview_router(stats)).unwrap();
+
+        let response = test_server
+            .client()
+            .get("http://localhost:3000/analysis")
+            .perform()
+            .unwrap();
+
+        assert_eq!(response.status(), StatusCode::OK);
+
+        let body = response.read_body().unwrap();
+        let b: Value = from_str(std::str::from_utf8(&body[..]).unwrap()).unwrap();
+
+        let expected = json!(
+            {
+                "total": 666,
+                "categories": {"array": 111, "number": 222, "string": 333}
+            }
+        );
+
+        assert_eq!(b, expected);
+    }
+}
