@@ -24,7 +24,7 @@ cd heapview/src/ui/
 npm install
 npm start
 ```
-You can read more in the [UI README](./ui/README.md).
+You can read more in the [UI README](./src/ui/README.md).
 
 ## Roadmap
 
