@@ -1,4 +1,14 @@
-import { applySpec, head, last, compose, map, toPairs } from 'ramda';
+import {
+  applySpec,
+  head,
+  last,
+  compose,
+  map,
+  toPairs,
+  sortWith,
+  descend,
+  prop,
+} from 'ramda';
 import { randomColor } from '../../utils';
 
 const formatToD3 = applySpec({
@@ -7,6 +17,10 @@ const formatToD3 = applySpec({
   color: compose(randomColor, last),
 });
 
-const entriesFormatter = compose(map(formatToD3), toPairs);
+const entriesFormatter = compose(
+  sortWith([descend(prop('value'))]),
+  map(formatToD3),
+  toPairs,
+);
 
 export default entriesFormatter;
