@@ -511,7 +511,6 @@ dependencies = [
  "mime 0.3.16",
  "serde",
  "serde_json",
- "tokio",
  "warp",
 ]
 
