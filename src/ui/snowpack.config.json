@@ -3,6 +3,6 @@
   "plugins": [],
   "devOptions": {
     "out": "../../dist/ui",
-    "port": 3000
+    "port": 3001
   }
 }
