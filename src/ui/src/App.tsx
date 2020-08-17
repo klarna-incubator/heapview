@@ -10,7 +10,7 @@ const App = ({}: AppProps) => {
   useEffect(() => {
     const requestFromServer = async () => {
       const res = await axios.request({
-        url: 'http://localhost:3000/analysis',
+        url: '/analysis',
       });
       setData(res.data);
     };

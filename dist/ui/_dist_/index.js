@@ -1,0 +1,1 @@
+import b from"../__snowpack__/env.js";import.meta.env=b;import a from"../web_modules/react.js";import c from"../web_modules/react-dom.js";import d from"./App.js";import"./index.css.proxy.js";c.render(a.createElement(a.StrictMode,null,a.createElement(d,null)),document.getElementById("root")),import.meta.hot&&import.meta.hot.accept();

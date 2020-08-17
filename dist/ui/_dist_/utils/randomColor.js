@@ -1,0 +1,1 @@
+import c from"../../web_modules/alea.js";const a=["#4C709A","#569556","#664980","#799FCB","#95B4CC","#9B4244","#A66A40","#ACECD5","#AFC7D0","#B5EAD7","#B7AA5E","#C7CEEA","#E0FEFE","#E2F0CB","#EEF1E6","#F9665E","#FEC9C9","#FF9AA2","#FFB7B2","#FFB9B3","#FFD5B8","#FFDAC1","#FFF9AA","#FFFFD8"],d=new c(),e=(b=null)=>a[Math.floor(d(b)*a.length)];export default e;
