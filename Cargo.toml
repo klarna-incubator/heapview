@@ -1,14 +1,13 @@
 [package]
 name = "heapview"
 version = "0.1.0"
-authors = ["Juan Lulkin <juan.lulkin@klarna.com>"]
+authors = ["Juan Lulkin <juan.lulkin@klarna.com>", "Piotr Gołąb <piotr.golab@klarna.com>"]
 edition = "2018"
 
 [dependencies]
 serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 warp = "0.2.4"
-tokio = { version = "0.2", features = ["macros"] }
 gotham = { git = "https://github.com/gotham-rs/gotham.git", branch = "master" }
 gotham_derive = { git = "https://github.com/gotham-rs/gotham.git", branch = "master" }
 mime = "0.3"
