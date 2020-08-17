@@ -1,0 +1,7 @@
+.chart.container {
+  display: flex;
+}
+
+.chart.container > div {
+  margin: 1rem;
+}
