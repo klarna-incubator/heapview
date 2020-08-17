@@ -1,4 +1,10 @@
 {
+  "name": "Heapview UI",
+  "version": "1.0.0",
+  "description": "Simple UI with D3 for heapview",
+  "contributors": [
+    "Federico Ratier <federico.ratier@klarna.com>"
+  ],
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",

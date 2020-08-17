@@ -1,7 +1,8 @@
 {
   "extends": "@snowpack/app-scripts-react",
   "plugins": [],
-  "dev": {
-    "port": 3000
+  "devOptions": {
+    "out": "../../dist/ui",
+    "port": 3001
   }
 }

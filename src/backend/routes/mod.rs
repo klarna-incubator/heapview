@@ -53,7 +53,9 @@ pub fn heapview_router(stats: Stats) -> Router {
     let (chain, pipelines) = single_pipeline(pipeline);
 
     build_router(chain, pipelines, |route| {
-        route.scope("/analysis", |route| route.get("/").to(handler))
+        route.scope("/analysis", |route| route.get("/").to(handler));
+        route.get("/").to_file("dist/ui/index.html");
+        route.get("/*").to_dir("dist/ui");
     })
 }
 

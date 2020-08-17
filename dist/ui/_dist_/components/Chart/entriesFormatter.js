@@ -1,0 +1,1 @@
+import{applySpec as c,head as d,last as a,compose as b,map as e,toPairs as f,sortWith as g,descend as h,prop as i}from"../../../web_modules/ramda.js";import{randomColor as j}from"../../utils/index.js";const k=c({key:d,value:a,color:b(j,a)}),l=b(g([h(i("value"))]),e(k),f);export default l;

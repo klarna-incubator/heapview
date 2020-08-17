@@ -1,5 +1,4 @@
+.DS_Store
 target
-.build
-build
-web_modules
-node_modules
+src/**/web_modules
+src/**/node_modules

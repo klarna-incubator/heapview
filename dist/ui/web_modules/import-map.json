@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "alea": "./alea.js",
+    "axios": "./axios.js",
+    "color": "./color.js",
+    "d3-selection": "./d3-selection.js",
+    "d3-shape": "./d3-shape.js",
+    "ramda": "./ramda.js",
+    "react": "./react.js",
+    "react-dom": "./react-dom.js"
+  }
+}
