@@ -15,12 +15,12 @@ use crate::analyzer::Stats;
 
 /// Used to share analysis results across execution threads
 #[derive(Debug, Clone, StateData)]
-struct SharedHeapdump {
+struct SharedStats {
     inner: Arc<Stats>,
 }
 
 pub fn handler(state: State) -> (State, Response<Body>) {
-    let stats: &Stats = &*SharedHeapdump::borrow_from(&state).inner;
+    let stats: &Stats = &*SharedStats::borrow_from(&state).inner;
 
     let mut response = match serde_json::to_string(&stats) {
         Ok(value) => create_response(&state, StatusCode::OK, mime::APPLICATION_JSON, value),
@@ -44,7 +44,7 @@ pub fn handler(state: State) -> (State, Response<Body>) {
 }
 
 pub fn heapview_router(stats: Stats) -> Router {
-    let shared = SharedHeapdump {
+    let shared = SharedStats {
         inner: Arc::new(stats),
     };
     let middleware = StateMiddleware::new(shared);
