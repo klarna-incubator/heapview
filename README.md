@@ -21,13 +21,14 @@ cargo run <PATH_TO_FILE>
 ```
 
 ## Running the UI
+
 To show the chart in the browser, you can start development server:
+
 ```
 cd heapview/src/ui/
-npm install
-npm start
+yarn install
+yarn start
 ```
-You can read more in the [UI README](./src/ui/README.md).
 
 ## Roadmap
 
