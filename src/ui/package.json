@@ -1,6 +1,7 @@
 {
-  "name": "Heapview UI",
+  "name": "heapview-ui",
   "version": "1.0.0",
+  "license": "MIT",
   "description": "Simple UI with D3 for heapview",
   "contributors": [
     "Federico Ratier <federico.ratier@klarna.com>"
