@@ -30,8 +30,6 @@ yarn install
 yarn start
 ```
 
-You can read more in the [UI README](./src/ui/README.md).
-
 ## Roadmap
 
 #### Realistic
