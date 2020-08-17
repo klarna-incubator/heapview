@@ -24,11 +24,19 @@ cargo run <PATH_TO_FILE>
 
 To show the chart in the browser, you can start development server:
 
-```
+```sh
+# Start development server
 cd heapview/src/ui/
 yarn install
 yarn start
 ```
+
+```sh
+# Build to root of project in /dist/ui
+yarn build
+```
+
+The UI uses [React](https://reactjs.org/) and [D3](https://d3js.org/) for rendering a dynamic SVG. When running development server make sure to also be running the backend since it's the source of analysis.
 
 ## Roadmap
 
