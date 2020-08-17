@@ -1,6 +1,9 @@
-import React, { useEffect, createRef } from 'react';
+import React from 'react';
 import Slice from './Slice';
-import * as d3 from 'd3'; // @to-do should change the package to just d3 modules we are actually using
+import ReferenceTable from '../ReferenceTable';
+import entriesFormatter from './entriesFormatter';
+import { pie as d3pie } from 'd3-shape';
+import './Chart.css';
 
 interface Data {
   categories: Array<any>;
@@ -11,34 +14,29 @@ interface ChartProps {
 }
 
 const Chart = ({ data }: ChartProps) => {
-  const { categories } = data;
-  const sunburstChartRef = createRef();
-
-  useEffect(() => {
-    /** @to-do use d3 append / selectors */
-    if (categories && sunburstChartRef.current) {
-      const svg = d3.select(sunburstChartRef.current);
-    }
-  });
+  const { categories, total } = data;
 
   /** @to-do Should this be configurable by user? */
   const width = 500;
   const height = 500;
 
-  const entries = d3.entries(categories);
+  const entries = entriesFormatter(categories);
 
-  /** @to-do switch to exampleContract and add labels */
-  let pie = d3
-    .pie()
-    .sort(null)
-    .value((d) => d.value)(entries);
+  const pie = d3pie().value((d) => d.value)(entries);
 
   return (
-    <svg height={height} width={width} ref={sunburstChartRef}>
-      <g transform={`translate(${width / 2},${height / 2})`}>
-        <Slice pie={pie} size={[width, height]} />
-      </g>
-    </svg>
+    <div className="chart container">
+      <div>
+        <svg height={height} width={width}>
+          <g transform={`translate(${width / 2},${height / 2})`}>
+            <Slice pie={pie} height={height} width={width} />
+          </g>
+        </svg>
+      </div>
+      <div>
+        <ReferenceTable pie={pie} total={total} />
+      </div>
+    </div>
   );
 };
 
